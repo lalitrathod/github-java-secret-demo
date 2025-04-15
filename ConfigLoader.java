@@ -15,7 +15,7 @@ public class ConfigLoader {
 
     public static String get(String key) {
         String value = props.getProperty(key);
-        if (value != null && value.matches("\$\{.+\}")) {
+        if (value != null && value.matches("\\$\\{.+\\}")) {
             String envKey = value.substring(2, value.length() - 1);
             return System.getenv(envKey);
         }
